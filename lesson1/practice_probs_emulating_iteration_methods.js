@@ -8,24 +8,24 @@
 // callback function, but feel free to add them if you like.
 // Note that the function should not mutate the input array.
 
-// function filter(array, callback) {
-//   let returnArr = [];
-//   for (let index = 0; index < array.length; index += 1) {
-//     if (callback(array[index])) {
-//       returnArr.push(array[index]);
-//     }
-//   }
-//   return returnArr;
-// }
+function filter(array, callback) {
+  let returnArr = [];
+  for (let index = 0; index < array.length; index += 1) {
+    if (callback(array[index])) {
+      returnArr.push(array[index]);
+    }
+  }
+  return returnArr;
+}
 
-// let numbers = [1, 2, 3, 4, 5];
-// console.log(filter(numbers, number => number > 3)); // => [ 4, 5 ]
-// console.log(filter(numbers, number => number < 0)); // => []
-// console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
+let numbers = [1, 2, 3, 4, 5];
+console.log(filter(numbers, number => number > 3)); // => [ 4, 5 ]
+console.log(filter(numbers, number => number < 0)); // => []
+console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
 
-// let values = [1, "abc", null, true, undefined, "xyz"];
-// console.log(filter(values, value => typeof value === "string"));
-// // => [ 'abc', 'xyz' ]
+let values = [1, "abc", null, true, undefined, "xyz"];
+console.log(filter(values, value => typeof value === "string"));
+// => [ 'abc', 'xyz' ]
 
 //q2
 // Write a function that acts like the built-in Array.prototype.map method. For
@@ -35,23 +35,23 @@
 // function, but feel free to add them if you like.
 // Note that the function should not mutate the input array.
 
-// function map(array, callback) {
-//   let returnArr = [];
-//   for (let index = 0; index < array.length; index += 1) {
-//     returnArr.push(callback(array[index]));
-//   }
-//   return returnArr;
-// }
+function map(array, callback) {
+  let returnArr = [];
+  for (let index = 0; index < array.length; index += 1) {
+    returnArr.push(callback(array[index]));
+  }
+  return returnArr;
+}
 
-// let numbers = [1, 2, 3, 4, 5];
-// console.log(map(numbers, number => number * 3));  // => [ 3, 6, 9, 12, 15 ]
-// console.log(map(numbers, number => number + 1));  // => [ 2, 3, 4, 5, 6 ]
-// console.log(map(numbers, () => false));
-// // => [ false, false, false, false, false ]
+let numbers = [1, 2, 3, 4, 5];
+console.log(map(numbers, number => number * 3));  // => [ 3, 6, 9, 12, 15 ]
+console.log(map(numbers, number => number + 1));  // => [ 2, 3, 4, 5, 6 ]
+console.log(map(numbers, () => false));
+// => [ false, false, false, false, false ]
 
-// let values = [1, "abc", null, true, undefined, "xyz"];
-// console.log(map(values, value => String(value)));
-// // => [ '1', 'abc', 'null', 'true', 'undefined', 'xyz' ]
+let values = [1, "abc", null, true, undefined, "xyz"];
+console.log(map(values, value => String(value)));
+// => [ '1', 'abc', 'null', 'true', 'undefined', 'xyz' ]
 
 //Emulating and Using the `reduce` Method
 //q1
@@ -81,20 +81,20 @@ function reduce(array, callback, initialValue) {
   return returnValue;
 }
 
-// let numbers = [1, 2, 3, 4, 5];
-// console.log(reduce(numbers, (accum, number) => accum + number));   // => 15
-// console.log(reduce(numbers, (prod, number) => prod * number));     // => 120
-// console.log(reduce(numbers, (prod, number) => prod * number, 3));  // => 360
-// console.log(reduce([], (accum, number) => accum + number, 10));    // => 10
-// console.log(reduce([], (accum, number) => accum + number));
-// // => undefined
+let numbers = [1, 2, 3, 4, 5];
+console.log(reduce(numbers, (accum, number) => accum + number));   // => 15
+console.log(reduce(numbers, (prod, number) => prod * number));     // => 120
+console.log(reduce(numbers, (prod, number) => prod * number, 3));  // => 360
+console.log(reduce([], (accum, number) => accum + number, 10));    // => 10
+console.log(reduce([], (accum, number) => accum + number));
+// => undefined
 
-// let stooges = ["Mo", "Larry", "Curly"];
-// console.log(reduce(stooges, (reversedStooges, stooge) => {
-//   reversedStooges.unshift(stooge);
-//   return reversedStooges;
-// }, []));
-// // => ["Curly", "Larry", "Mo"]
+let stooges = ["Mo", "Larry", "Curly"];
+console.log(reduce(stooges, (reversedStooges, stooge) => {
+  reversedStooges.unshift(stooge);
+  return reversedStooges;
+}, []));
+// => ["Curly", "Larry", "Mo"]
 
 //alternative answer:
 // function reduce(array, callback, initialValue) {
@@ -124,23 +124,23 @@ function reduce(array, callback, initialValue) {
 // problem 1. This time, though, you should use Array.prototype.reduce to
 // filter the input array.
 
-// function filter(array, callback) {
-//   return array.reduce((a,b) => {
-//     if (callback(b)) {
-//       a.push(b);
-//     }
-//     return a;
-//   }, []);
-// }
+function filter(array, callback) {
+  return array.reduce((a,b) => {
+    if (callback(b)) {
+      a.push(b);
+    }
+    return a;
+  }, []);
+}
 
-// let numbers = [1, 2, 3, 4, 5];
-// console.log(filter(numbers, number => number > 3)); // => [ 4, 5 ]
-// console.log(filter(numbers, number => number < 0)); // => []
-// console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
+let numbers = [1, 2, 3, 4, 5];
+console.log(filter(numbers, number => number > 3)); // => [ 4, 5 ]
+console.log(filter(numbers, number => number < 0)); // => []
+console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
 
-// let values = [1, "abc", null, true, undefined, "xyz"];
-// console.log(filter(values, value => typeof value === "string"));
-// // => [ 'abc', 'xyz' ]
+let values = [1, "abc", null, true, undefined, "xyz"];
+console.log(filter(values, value => typeof value === "string"));
+// => [ 'abc', 'xyz' ]
 
 //q3
 // Let's put reduce to work with emulating map as well. Write a function that
